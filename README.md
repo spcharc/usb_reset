@@ -1,7 +1,7 @@
 # usb_reset
 Linux commandline tool to reset a USB device
 
-# Usage
+## Usage
 It resets a USB device based on its product_id:vendor_id pair.
 ```
 # ./usb_reset 413c:2003
@@ -18,7 +18,7 @@ You can also provide the product name and manufacturer name. In this case, this 
 ```
 (No output since it did nothing. However when the USB device does not work properly, usually it cannot return the correct strings, in this case it will be resetted.)
 
-# Auto reset a USB device when it stops working
+## Auto reset a USB device when it stops working
 I personally use it in a loop to reset a USB device that often stops working and requires me to unplug and plug it back.
 ```
 #!/bin/sh
@@ -34,7 +34,7 @@ done
 echo Last returned "$a"
 ```
 
-# Compile
+## Compile
 First of all, install `libusb` header files. On Debian based systems the command can be:
 
 `apt list libusb-1.0-0-dev`
@@ -43,5 +43,5 @@ Compile:
 
 `g++ usb_reset.cpp -o usb_reset -lusb-1.0`
 
-# License
+## License
 GNU GPL v3.0
