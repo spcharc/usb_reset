@@ -41,7 +41,7 @@ First of all, install `libusb` header files. On Debian based systems the command
 
 Compile:
 
-`g++ usb_reset -o usb_reset -lusb-1.0`
+`g++ usb_reset.cpp -o usb_reset -lusb-1.0`
 
 # License
 GNU GPL v3.0
