@@ -3,7 +3,7 @@
 #include <libusb-1.0/libusb.h>
 
 std::pair <uint16_t, uint16_t> parse_argv1(const std::string &in) {
-    // this function parses argv[1], which is the {vendor_id}:{product_id} pair
+    // this function parses argv[1], which is the vendor_id:product_id pair
     // converts them to hexadecimal
     // and returns std::pair <uint16_t, uint16_t>
 
@@ -26,14 +26,12 @@ std::pair <uint16_t, uint16_t> parse_argv1(const std::string &in) {
 }
 
 
-
 // when something went wrong with usblib, this exception is thrown
 class UsbLibException: public std::runtime_error {
 public:
     UsbLibException(const char *s): std::runtime_error(s) {}
     virtual ~UsbLibException() override {}
 };
-
 
 
 class DeviceList {
@@ -65,10 +63,10 @@ public:
 };
 
 
-
 class UsbContext {
     // this RAII class is used to hold libusb context
     libusb_context *ctx;
+
 public:
     UsbContext(): ctx(nullptr) {
         if (libusb_init(& this->ctx) != 0)
@@ -85,10 +83,10 @@ public:
 };
 
 
-
 class DeviceHandle {
     // this RAII class is used to hold a device handle
     libusb_device_handle *handle;
+
 public:
     DeviceHandle(libusb_device *dev): handle(nullptr) {
         int res = libusb_open(dev, & this->handle);
@@ -105,7 +103,6 @@ public:
         return this->handle;
     }
 };
-
 
 
 void reset(const std::pair <uint16_t, uint16_t> &p,
@@ -156,8 +153,8 @@ void reset(const std::pair <uint16_t, uint16_t> &p,
             return;
         }
     }
+    std::cout << "No such USB device found." << std::endl;
 }
-
 
 
 int main(int argc, char **argv) {
