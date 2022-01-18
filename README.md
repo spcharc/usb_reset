@@ -1,4 +1,4 @@
-### For most of the cases you can use `usbreset` from package `usbutils`, instead of this tool. If you have `lsusb` then it is likely that you have `usbutils` installed on your device.
+### For most of the cases you can just use `usbreset` from package `usbutils`, instead of this tool. If you have `lsusb` then it is likely that you have `usbutils` already installed on your device.
 
 # usb_reset
 Linux commandline tool to reset a USB device
